@@ -77,7 +77,10 @@
 
           const textElement = document.createElement("p");
           textElement.textContent = infoBox.description;
+          const img = document.createElement("img");
+          img.src = `images/${infoBox.thumbnail}`;
 
+          selected.appendChild(img);
           selected.appendChild(titleElement);
           selected.appendChild(textElement);
         });
