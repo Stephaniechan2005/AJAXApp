@@ -65,7 +65,7 @@
   //functions
   function loadInfoBoxes() {
     //load in image
-
+    loader.classList.toggle("hidden");
     fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then((response) => response.json())
       .then((infoBoxes) => {
@@ -84,6 +84,7 @@
           selected.appendChild(titleElement);
           selected.appendChild(textElement);
         });
+        loader.classList.toggle("hidden");
       })
       .catch((error) => {
         console.error(error);
@@ -102,6 +103,7 @@
   loadInfoBoxes();
 
   function loadMaterialInfo() {
+    loader.classList.toggle("hidden");
     fetch("https://swiftpixel.com/earbud/api/materials")
       .then((response) => response.json())
       .then((materialListData) => {
@@ -118,6 +120,7 @@
           materialDescription.textContent = material.description;
 
           materialList.appendChild(clone);
+          loader.classList.toggle("hidden");
         });
       })
       .catch((error) => {
