@@ -85,7 +85,17 @@
           selected.appendChild(textElement);
         });
       })
-      .catch();
+      .catch((error) => {
+        console.error(error);
+        const hotspotserror = document.querySelectorAll(".HotspotAnnotation");
+        hotspotserror.forEach((selected) => {
+          const errorMessage = document.createElement("p");
+          errorMessage.classList.add("error-message");
+          errorMessage.textContent =
+            "Oops, something went wrong. Please check your internet connection or try again later.";
+          selected.appendChild(errorMessage);
+        });
+      });
 
     //error message goes in catch
   }
@@ -110,7 +120,14 @@
           materialList.appendChild(clone);
         });
       })
-      .catch();
+      .catch((error) => {
+        console.log(error);
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent =
+          "Oops, something went wrong. Please check your internet connection or try again later.";
+
+        materialList.appendChild(errorMessage);
+      });
   }
   loadMaterialInfo();
 
